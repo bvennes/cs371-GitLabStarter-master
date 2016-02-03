@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="#fffdff00"
     tools:context=".TextModActivity">
 
 
@@ -194,6 +194,10 @@
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"/>
+
+    <requestFocus
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
