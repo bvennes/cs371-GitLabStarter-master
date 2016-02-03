@@ -69,7 +69,8 @@
             android:id="@+id/button"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
-            android:background="@color/button_color" />
+            android:background="@color/button_color"
+            android:clickable="false" />
 
         <Space
             android:layout_width="0sp"
@@ -80,10 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upper_button_text"
-            android:id="@+id/button6"
+            android:id="@+id/buttonUpper"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
-            android:background="@color/button_color" />
+            android:background="@color/button_color"
+            android:clickable="true"
+            android:nestedScrollingEnabled="true"
+            android:onClick="Upper" />
 
         <Space
             android:layout_width="0sp"
@@ -94,10 +98,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lower_button_text"
-            android:id="@+id/button7"
+            android:id="@+id/buttonLower"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
-            android:background="@color/button_color" />
+            android:background="@color/button_color"
+            android:clickable="true"
+            android:onClick="Lower"
+            android:nestedScrollingEnabled="true" />
 
         <Space
             android:layout_width="0sp"
@@ -111,7 +118,8 @@
             android:id="@+id/button4"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
-            android:background="@color/button_color" />
+            android:background="@color/button_color"
+            android:clickable="false" />
 
         <Space
             android:layout_width="0sp"
