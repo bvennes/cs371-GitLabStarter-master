@@ -18,8 +18,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity {
@@ -29,8 +27,6 @@ public class TextModActivity extends ActionBarActivity {
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
-    protected TextView clear;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -44,8 +40,6 @@ public class TextModActivity extends ActionBarActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-
-        clear = (TextView)findViewById(R.id.editText);
 
         // Set up the spinner so that it shows the names in the spinner array resources
         //
@@ -80,24 +74,6 @@ public class TextModActivity extends ActionBarActivity {
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
     }
-
-
-
-    public void Clear(View v)
-    {
-
-        clear.setText("");
-
-    }
-
-
-
-
-
-
-
-
-
 
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
@@ -150,11 +126,6 @@ public class TextModActivity extends ActionBarActivity {
         @Override
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
-
         }
-
-
     }
 }
-
-
