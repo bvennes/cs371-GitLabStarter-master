@@ -5,28 +5,40 @@ package edu.up.cs371.textmod;
  *
  * Allow text to be modified in simple ways with button-presses.
  */
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements android.widget.Button.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+    private Button reverseb;
+    private EditText textview;
+
+    private EditText editText;
+    private Spinner spinner;
+    private Button copyButton;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -73,6 +85,21 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        editText = (EditText) findViewById(R.id.editText);
+        reverseb = (Button)findViewById(R.id.button4);
+        reverseb.setOnClickListener(this);
+
+        textview = (EditText)findViewById(R.id.editText);
+        copyButton = (Button) findViewById(R.id.button2);
+        copyButton.setOnClickListener(this);
+    }
+
+    public void Upper(View v) {
+        textview.setText(("" + textview.getText()).toUpperCase());
+    }
+
+    public void Lower(View v) {
+        textview.setText(("" + textview.getText()).toLowerCase());
     }
 
     /**
@@ -101,6 +128,22 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()== R.id.button4) {
+            String text = textview.getText() + "";
+            String newtext = "";
+            for (int i = text.length() - 1; i >= 0; i--) {
+                newtext = newtext + text.charAt(i);
+            }
+
+            textview.setText(newtext);
+        }
+        if(v.getId() == R.id.button2) {
+            editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+        }
     }
 
     /**
