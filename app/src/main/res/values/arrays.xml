@@ -9,6 +9,8 @@
         <item>@mipmap/kitten</item>
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
+        <item>@mipmap/randomf</item>
+        <item>@mipmap/pichurr</item>
         <item>@mipmap/ditchfest</item>
     </array>
 
@@ -16,6 +18,8 @@
         <item>Sleeping Kitten</item>
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
+        <item> Brandon Sit</item>
+        <item>Dr. Dominic Ferrari</item>
         <item>Shan Tallizun</item>
     </string-array>
 
