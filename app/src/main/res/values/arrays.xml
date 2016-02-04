@@ -11,6 +11,9 @@
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/vennes</item>
         <item></item>
+        <item>@mipmap/randomf</item>
+        <item>@mipmap/pichurr</item>
+        <item>@mipmap/ditchfest</item>
     </array>
 
     <string-array name="spinner_names">
@@ -18,6 +21,9 @@
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
         <item>Dr. Branden Vennes M.D.</item>
+        <item> Brandon Sit</item>
+        <item>Dr. Dominic Ferrari</item>
+        <item>Shan Tallizun</item>
     </string-array>
 
 </resources>
