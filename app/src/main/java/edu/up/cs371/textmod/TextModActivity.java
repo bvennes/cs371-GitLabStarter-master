@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,13 +26,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
+public class TextModActivity extends ActionBarActivity implements android.widget.Button.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+    private Button reverseb;
+    private EditText textview;
 
     private EditText editText;
     private Spinner spinner;
@@ -53,7 +56,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        spinner = (Spinner)findViewById(R.id.spinner);
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -83,9 +86,19 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
         editText = (EditText) findViewById(R.id.editText);
+        reverseb = (Button)findViewById(R.id.button4);
+        reverseb.setOnClickListener(this);
+
+        textview = (EditText)findViewById(R.id.editText);
+
+    }
 
         copyButton = (Button) findViewById(R.id.button2);
         copyButton.setOnClickListener(this);
+    }
+
+    public void Lower(View v) {
+        input.setText(("" + input.getText()).toLowerCase());
     }
 
     /**
@@ -119,6 +132,20 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()== R.id.button4) {
+            String text = textview.getText() + "";
+            String newtext = "";
+            for (int i = text.length() - 1; i >= 0; i--) {
+                newtext = newtext + text.charAt(i);
+            }
+
+            textview.setText(newtext);
+        }
+
     }
 
     /**
