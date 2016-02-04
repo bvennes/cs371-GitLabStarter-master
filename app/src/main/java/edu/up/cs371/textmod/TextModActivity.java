@@ -40,6 +40,8 @@ public class TextModActivity extends ActionBarActivity implements android.widget
     private Spinner spinner;
     private Button copyButton;
 
+    protected TextView clear;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -49,7 +51,7 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
-
+        clear = (TextView) findViewById(R.id.editText);
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
@@ -102,6 +104,11 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         textview.setText(("" + textview.getText()).toLowerCase());
     }
 
+
+    public void clear(View v)
+    {
+        clear.setText("");
+    }
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */
