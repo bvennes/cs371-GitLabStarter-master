@@ -5,6 +5,7 @@ package edu.up.cs371.textmod;
  *
  * Allow text to be modified in simple ways with button-presses.
  */
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,19 +18,23 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements android.widget.Button.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+    private Button reverseb;
+    private EditText textview;
 
     // the text view input
     private TextView input;
@@ -82,6 +87,11 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        reverseb = (Button)findViewById(R.id.button4);
+        reverseb.setOnClickListener(this);
+
+        textview = (EditText)findViewById(R.id.editText);
+
     }
 
     //make the input upper case
@@ -119,6 +129,20 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()== R.id.button4) {
+            String text = textview.getText() + "";
+            String newtext = "";
+            for (int i = text.length() - 1; i >= 0; i--) {
+                newtext = newtext + text.charAt(i);
+            }
+
+            textview.setText(newtext);
+        }
+
     }
 
     /**
