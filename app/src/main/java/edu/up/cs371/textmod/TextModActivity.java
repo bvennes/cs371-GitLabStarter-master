@@ -40,6 +40,8 @@ public class TextModActivity extends ActionBarActivity implements android.widget
     private Spinner spinner;
     private Button copyButton;
 
+    private Button randomButton;
+
     protected TextView clear;
 
     /**
@@ -94,6 +96,9 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         textview = (EditText)findViewById(R.id.editText);
         copyButton = (Button) findViewById(R.id.button2);
         copyButton.setOnClickListener(this);
+
+        randomButton = (Button) findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(this);
     }
 
     public void Upper(View v) {
@@ -150,6 +155,18 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         }
         if(v.getId() == R.id.button2) {
             editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+        }
+        if(v.getId() == R.id.randomButton) {
+            String alphabet = "abcdefghijklmnopqrstuvwxyz";
+            int randomInt = (int) (Math.random() * (editText.getText().length()));
+            int anotherOne = (int) (Math.random() * (alphabet.length() - 1));
+            String randomCharacter = alphabet.substring(anotherOne, anotherOne + 1);
+            String stringToEdit = editText.getText() + "";
+            String newString = "";
+            newString = stringToEdit.substring(0, randomInt);
+            newString = newString + randomCharacter;
+            newString = newString + stringToEdit.substring(randomInt + 1);
+            editText.setText(newString);
         }
     }
 
