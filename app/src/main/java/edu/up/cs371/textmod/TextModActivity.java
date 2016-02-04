@@ -42,6 +42,8 @@ public class TextModActivity extends ActionBarActivity implements android.widget
 
     protected TextView clear;
 
+    protected Button noSpaces;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -94,6 +96,9 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         textview = (EditText)findViewById(R.id.editText);
         copyButton = (Button) findViewById(R.id.button2);
         copyButton.setOnClickListener(this);
+
+        noSpaces = (Button)findViewById(R.id.noSpace);
+        noSpaces.setOnClickListener(this);
     }
 
     public void Upper(View v) {
@@ -151,6 +156,24 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         if(v.getId() == R.id.button2) {
             editText.setText(editText.getText() + spinner.getSelectedItem().toString());
         }
+
+        if(v.getId() == R.id.noSpace)
+        {
+            String space = textview.getText()+"";
+            String noSpace = "";
+            for(int i=0;i<space.length();i++)
+            {
+                String charr = space.charAt(i)+"";
+                if(charr.equals(" "))
+                {
+                    i++;
+                }
+                noSpace = noSpace + space.charAt(i);
+            }
+            textview.setText(noSpace);
+        }
+
+
     }
 
     /**
