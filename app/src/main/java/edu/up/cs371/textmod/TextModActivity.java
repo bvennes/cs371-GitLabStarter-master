@@ -56,7 +56,7 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -90,15 +90,16 @@ public class TextModActivity extends ActionBarActivity implements android.widget
         reverseb.setOnClickListener(this);
 
         textview = (EditText)findViewById(R.id.editText);
-
-    }
-
         copyButton = (Button) findViewById(R.id.button2);
         copyButton.setOnClickListener(this);
     }
 
+    public void Upper(View v) {
+        textview.setText(("" + textview.getText()).toUpperCase());
+    }
+
     public void Lower(View v) {
-        input.setText(("" + input.getText()).toLowerCase());
+        textview.setText(("" + textview.getText()).toLowerCase());
     }
 
     /**
@@ -131,11 +132,6 @@ public class TextModActivity extends ActionBarActivity implements android.widget
 
     @Override
     public void onClick(View v) {
-        editText.setText(editText.getText() + spinner.getSelectedItem().toString());
-    }
-
-    @Override
-    public void onClick(View v) {
         if(v.getId()== R.id.button4) {
             String text = textview.getText() + "";
             String newtext = "";
@@ -145,7 +141,9 @@ public class TextModActivity extends ActionBarActivity implements android.widget
 
             textview.setText(newtext);
         }
-
+        if(v.getId() == R.id.button2) {
+            editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+        }
     }
 
     /**
